@@ -1,0 +1,310 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{libertine}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{soul}
+\usepackage{multicol}
+
+% Configuración de colores personalizados
+\definecolor{maincolor}{RGB}{139,0,0}
+\definecolor{secondcolor}{RGB}{220,20,60}
+\definecolor{accentcolor}{RGB}{255,182,193}
+\definecolor{darkgray}{RGB}{60,60,60}
+
+% Configuración de títulos con color
+\titleformat{\section}
+  {\color{maincolor}\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\color{secondcolor}\large\bfseries}{\thesubsection}{1em}{}
+
+% Encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{maincolor}El Amor desde la Psicología}
+\fancyhead[R]{\small\color{darkgray}Psicología Social 2025-2}
+\fancyfoot[C]{\color{darkgray}\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{maincolor}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{accentcolor}\leaders\hrule height \footrulewidth\hfill}}
+
+\begin{document}
+
+% Portada
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[maincolor] (current page.north west) rectangle ([yshift=-4cm]current page.north east);
+        \fill[accentcolor] ([yshift=-4cm]current page.north west) rectangle ([yshift=-4.3cm]current page.north east);
+    \end{tikzpicture}
+    
+    \vspace*{1cm}
+    
+    \begin{center}
+        {\color{white}\fontsize{16}{19}\selectfont\bfseries
+        UNIVERSIDAD ESCUELA COLOMBIANA DE INGENIERÍA\\
+        JULIO GARAVITO}
+        
+        \vspace{0.5cm}
+        
+        % Logo de la universidad
+        \includegraphics[width=6cm]{media/university_logo.png}
+        
+        \vspace{1.5cm}
+        
+        \begin{tcolorbox}[colback=accentcolor!20,colframe=secondcolor,width=14cm,arc=3mm,boxrule=1.5pt]
+            \centering
+            {\color{maincolor}\Huge\bfseries EL AMOR}\\
+            \vspace{0.3cm}
+            {\color{secondcolor}\LARGE Una Exploración desde la Psicología Social}\\
+            \vspace{0.2cm}
+            {\color{darkgray}\large Características, Teorías y Reflexiones}
+        \end{tcolorbox}
+        
+        \vspace{1.0cm}
+        
+        {\color{darkgray}\Large\bfseries Integrantes:}
+        
+        \vspace{0.5cm}
+        
+        \begin{tcolorbox}[colback=white,colframe=accentcolor,width=12cm,boxrule=1pt]
+            \centering
+            {\color{darkgray}\large
+            Andersson David Sánchez Méndez\\[0.3cm]
+            Cristian Santiago Pedraza Rodríguez\\[0.3cm]
+            Javier Mauricio Romero Deaquiz}
+        \end{tcolorbox}
+        
+        \vfill
+        
+        {\color{darkgray}\large\bfseries
+        Psicología Social 2025-2 --- Grupo 1\\[0.2cm]
+        Examen de Tercer Tercio}
+        
+        \vspace{0.5cm}
+        
+        {\color{maincolor}\large\bfseries Profesora:}\\
+        {\color{darkgray}\large Maria Ignacia Castañeda Garay}
+        
+        \vspace{0.8cm}
+        
+        {\color{darkgray}\large Bogotá D.C., Diciembre de 2025}
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+\section*{\color{maincolor}Introducción}
+\addcontentsline{toc}{section}{Introducción}
+
+Cuando nos preguntamos qué es el amor, inmediatamente nos damos cuenta de que estamos frente a uno de los fenómenos más complejos y fascinantes de la experiencia humana. No es solo una palabra que usamos a diario, sino un estado que atraviesa nuestra existencia de formas que apenas comenzamos a comprender cuando nos detenemos a reflexionar sobre él.
+
+Durante años, el amor ha sido tema de poetas, filósofos y artistas, pero ¿qué tiene que decir la psicología al respecto? Como estudiantes de ingeniería, acostumbrados a buscar lógica y estructura en todo, nos encontramos con que el amor desafía muchas de nuestras certezas. Sin embargo, precisamente por eso resulta tan valioso explorarlo: porque nos recuerda que ser humano implica también abrazar la complejidad emocional que nos define.
+
+Este escrito nace de conversaciones entre nosotros, de experiencias personales que hemos compartido, y de la curiosidad genuina por entender por qué sentimos lo que sentimos cuando amamos. No pretendemos ofrecer fórmulas matemáticas para el amor---sería absurdo intentarlo---pero sí queremos compartir lo que hemos descubierto al estudiar las teorías psicológicas que intentan explicar este fenómeno universal.
+
+\section{\color{maincolor}¿Qué es el Amor? Una Aproximación Personal y Científica}
+
+\begin{tcolorbox}[colback=accentcolor!10,colframe=secondcolor,arc=2mm,boxrule=1pt]
+\textit{\color{darkgray}``El amor no es solo un sentimiento; es una decisión, un compromiso, una forma de ver al otro y de vernos a nosotros mismos en relación con ese otro.''}
+\end{tcolorbox}
+
+Si tuviéramos que definir el amor basándonos únicamente en nuestras experiencias, probablemente cada uno daríamos una respuesta distinta. Para algunos de nosotros, el amor es esa sensación de paz que sentimos al estar cerca de ciertas personas. Para otros, es la inquietud constante por el bienestar de alguien más, incluso cuando eso implica sacrificar algo propio.
+
+Desde la psicología, el amor se entiende como un \textbf{conjunto complejo de emociones, cogniciones y comportamientos} que nos vinculan profundamente con otros seres humanos. No es un estado uniforme ni estático, sino que evoluciona, cambia y se transforma con el tiempo y las circunstancias. 
+
+Lo interesante es que el amor activa regiones específicas de nuestro cerebro---el sistema límbico, la corteza prefrontal---y libera neurotransmisores como la dopamina, la oxitocina y la serotonina. Pero reducir el amor a química cerebral sería como decir que una sinfonía de Beethoven es solo vibraciones en el aire. Técnicamente cierto, pero profundamente insuficiente para capturar la experiencia.
+
+\subsection{\color{secondcolor}Dimensiones del Amor}
+
+Hemos identificado que el amor opera en varias dimensiones simultáneas:
+
+\begin{itemize}[leftmargin=*,labelsep=5mm]
+    \item[\color{maincolor}$\heartsuit$] \textbf{Dimensión Emocional:} Es lo que sentimos---la calidez, la ternura, la pasión, a veces la angustia de perder a quien amamos.
+    
+    \item[\color{maincolor}$\heartsuit$] \textbf{Dimensión Cognitiva:} Son los pensamientos constantes sobre la persona amada, la idealización que hacemos de ella, los recuerdos que atesoramos.
+    
+    \item[\color{maincolor}$\heartsuit$] \textbf{Dimensión Conductual:} Las acciones concretas---cuidar, apoyar, estar presente, hacer sacrificios voluntarios.
+    
+    \item[\color{maincolor}$\heartsuit$] \textbf{Dimensión Fisiológica:} Las reacciones corporales---el corazón que se acelera, las manos que sudan, la sensación de mariposas en el estómago.
+\end{itemize}
+
+\section{\color{maincolor}Características del Amor: Lo que Hemos Observado y Estudiado}
+
+\begin{tcolorbox}[colback=white,colframe=accentcolor,arc=2mm,boxrule=1.5pt,title={\color{maincolor}\bfseries Reflexión Personal}]
+\textit{\color{darkgray}Uno de nosotros comentaba el otro día: ``Lo que más me sorprende del amor es que puede hacerte sentir vulnerable y fuerte al mismo tiempo.'' Y es verdad. El amor nos expone, pero también nos da una fortaleza que no sabíamos que teníamos.}
+\end{tcolorbox}
+
+\vspace{0.3cm}
+
+Después de revisar literatura psicológica y contrastarla con experiencias reales---nuestras y de personas cercanas---identificamos estas características fundamentales:
+
+\subsection{\color{secondcolor}1. Reciprocidad e Interdependencia}
+
+El amor verdadero no es unilateral. Implica un intercambio constante donde ambas personas se influyen mutuamente. No se trata de perder la individualidad, sino de construir algo nuevo juntos, donde $1 + 1 > 2$. Hemos notado que las relaciones más sólidas son aquellas donde existe un balance---no perfecto, porque eso sería imposible---pero sí consciente y constantemente negociado.
+
+\subsection{\color{secondcolor}2. Compromiso y Permanencia}
+
+Una cosa es la atracción inicial, que puede ser intensa pero efímera. Otra muy distinta es el compromiso, esa decisión consciente de permanecer y construir a pesar de las dificultades. El compromiso es lo que transforma una emoción pasajera en una relación duradera. Es levantarse cada día y elegir activamente a esa persona, incluso cuando la novedad inicial ha disminuido.
+
+\subsection{\color{secondcolor}3. Intimidad Emocional}
+
+La capacidad de ser auténticos, de mostrarnos vulnerables sin miedo al juicio. La intimidad no es solo física---aunque eso también es importante---sino la sensación de que alguien realmente te conoce y te acepta tal como eres. Es poder compartir tus miedos más profundos y tus sueños más absurdos sin sentirte ridículo.
+
+\subsection{\color{secondcolor}4. Pasión y Atracción}
+
+Seamos honestos: la pasión importa. No podemos hablar de amor romántico sin mencionar ese componente de deseo, de atracción física y emocional que nos hace querer estar cerca del otro. La pasión puede fluctuar---no es constante---pero su presencia (al menos en ciertas formas) es importante para diferenciar el amor romántico de otras formas de amor.
+
+\subsection{\color{secondcolor}5. Altruismo y Cuidado}
+
+Cuando realmente amamos a alguien, su bienestar se vuelve tan importante como el propio, a veces incluso más. No es un sacrificio doloroso, sino algo que hacemos naturalmente. Es preocuparte por cómo le fue en su día, celebrar sus logros como si fueran tuyos, y sentir su dolor como propio.
+
+\subsection{\color{secondcolor}6. Respeto y Admiración}
+
+El amor no puede existir sin respeto. Admirar a la persona que amamos---no idealizarla ciegamente, sino valorar genuinamente quién es---fortalece el vínculo. Es reconocer sus fortalezas, pero también aceptar sus debilidades sin intentar cambiarla a la fuerza.
+
+\section{\color{maincolor}Teorías Psicológicas del Amor: Intentos de Explicar lo Inexplicable}
+
+La psicología ha desarrollado múltiples teorías para entender el amor. Aquí presentamos las que consideramos más relevantes y las que más resuenan con nuestra experiencia:
+
+\subsection{\color{secondcolor}Teoría Triangular del Amor de Sternberg}
+
+Robert Sternberg propuso en 1986 que el amor consta de tres componentes que, al combinarse, generan diferentes tipos de amor:
+
+\begin{center}
+\begin{tcolorbox}[colback=accentcolor!15,colframe=maincolor,width=13cm,arc=2mm,boxrule=1pt]
+\begin{itemize}[leftmargin=*]
+    \item \textbf{\color{maincolor}Intimidad:} El componente emocional---sentimientos de cercanía, conexión y vínculo.
+    \item \textbf{\color{maincolor}Pasión:} El componente motivacional---atracción física, romance y deseo sexual.
+    \item \textbf{\color{maincolor}Compromiso:} El componente cognitivo---la decisión de amar y mantener ese amor.
+\end{itemize}
+\end{tcolorbox}
+\end{center}
+
+Lo fascinante de esta teoría es que reconoce que el amor no es monolítico. Cuando los tres componentes están presentes, Sternberg habla de \textit{amor consumado}---el tipo de amor al que muchos aspiramos. Pero también reconoce que podemos experimentar:
+
+\begin{itemize}
+    \item \textit{Cariño} (solo intimidad)
+    \item \textit{Encaprichamiento} (solo pasión)  
+    \item \textit{Amor vacío} (solo compromiso)
+    \item \textit{Amor romántico} (intimidad + pasión)
+    \item \textit{Amor sociable} (intimidad + compromiso)
+    \item \textit{Amor fatuo} (pasión + compromiso)
+\end{itemize}
+
+Personalmente, esta teoría nos ayuda a entender por qué algunas relaciones que comienzan con mucha pasión terminan rápido---les falta intimidad y compromiso. O por qué matrimonios largos pueden sentirse vacíos si han perdido la intimidad y la pasión, manteniendo solo el compromiso.
+
+\subsection{\color{secondcolor}Teoría del Apego de Bowlby y Ainsworth}
+
+Esta teoría nos golpeó fuerte cuando la estudiamos porque explica mucho sobre cómo amamos basándonos en nuestras primeras experiencias de cuidado. John Bowlby y Mary Ainsworth propusieron que desarrollamos \textit{estilos de apego} en la infancia que luego influyen en nuestras relaciones adultas:
+
+\textbf{\color{maincolor}Apego Seguro:} Personas que tuvieron cuidadores consistentes y responsivos. En relaciones adultas, confían en los demás, se sienten cómodas con la intimidad y la independencia.
+
+\textbf{\color{maincolor}Apego Ansioso:} Surgido de cuidado inconsistente. En la adultez, tienden a preocuparse por el abandono, buscan validación constante y pueden ser percibidos como ``necesitados.''
+
+\textbf{\color{maincolor}Apego Evitativo:} Resultado de cuidadores distantes o rechazantes. Adultos que valoran excesivamente la independencia, evitan la intimidad emocional profunda.
+
+\textbf{\color{maincolor}Apego Desorganizado:} De entornos traumáticos o impredecibles. Patrones confusos en relaciones---deseo de cercanía pero terror simultáneo a ella.
+
+Lo que nos parece esperanzador es que el apego no es destino. Podemos desarrollar seguridad en el apego a través de relaciones saludables y trabajo personal consciente.
+
+\subsection{\color{secondcolor}Teoría del Amor como Historia de Sternberg}
+
+Más allá de su teoría triangular, Sternberg propuso que cada persona tiene ``historias de amor'' implícitas---narrativas sobre cómo debe ser el amor, basadas en experiencias, cultura y personalidad. Identificó 26 historias diferentes, incluyendo:
+
+\begin{multicols}{2}
+\begin{itemize}
+    \item El amor como viaje
+    \item El amor como guerra
+    \item El amor como juego
+    \item El amor como negocio
+    \item El amor como arte
+    \item El amor como jardín
+\end{itemize}
+\end{multicols}
+
+La compatibilidad en las relaciones depende no solo de amar, sino de compartir historias compatibles sobre qué significa amar. Si uno ve el amor como guerra (competencia constante) y otro como colaboración, surgirán conflictos inevitables.
+
+\subsection{\color{secondcolor}Teoría de los Colores del Amor de Lee}
+
+John Alan Lee propuso que existen seis estilos básicos de amor, como colores primarios y secundarios:
+
+\textbf{\color{maincolor}Eros:} Amor pasional y romántico, basado en atracción física intensa.
+
+\textbf{\color{maincolor}Ludus:} Amor lúdico, sin compromiso serio, donde el romance es un juego.
+
+\textbf{\color{maincolor}Storge:} Amor basado en amistad y compañerismo, que crece lentamente.
+
+\textbf{\color{maincolor}Pragma:} Amor práctico, donde se busca compatibilidad lógica y beneficios mutuos.
+
+\textbf{\color{maincolor}Manía:} Amor obsesivo y posesivo, con altibajos emocionales intensos.
+
+\textbf{\color{maincolor}Ágape:} Amor altruista y desinteresado, centrado en el bienestar del otro.
+
+La mayoría de nosotros experimentamos combinaciones de estos estilos, y pueden cambiar según la etapa de vida o la relación específica.
+
+\subsection{\color{secondcolor}Neurobiología del Amor: Fisher y Colaboradores}
+
+Helen Fisher y su equipo usaron neuroimagen para estudiar el cerebro enamorado. Proponen tres sistemas cerebrales relacionados con el amor:
+
+\begin{enumerate}
+    \item \textbf{Lujuria:} Impulsada por hormonas sexuales (testosterona y estrógeno).
+    \item \textbf{Atracción:} El enamoramiento inicial, con altos niveles de dopamina y norepinefrina, bajos de serotonina---similar a un trastorno obsesivo-compulsivo leve.
+    \item \textbf{Apego:} Amor de largo plazo, mediado por oxitocina y vasopresina, que genera calma y seguridad.
+\end{enumerate}
+
+Esto explica por qué el enamoramiento inicial (atracción) se siente tan diferente al amor maduro (apego). No es que uno sea más real que el otro---son sistemas diferentes cumpliendo funciones evolutivas distintas.
+
+\section{\color{maincolor}Reflexiones Finales: Lo que el Amor nos Enseña}
+
+Después de explorar teorías y características, llegamos a algunas conclusiones personales. El amor, en todas sus formas, es fundamentalmente un acto de valentía. Requiere que bajemos nuestras defensas, que confiemos, que nos arriesguemos al rechazo y al dolor.
+
+Como estudiantes de ingeniería, buscamos constantemente optimizar, mejorar, hacer las cosas más eficientes. Pero el amor nos recuerda que algunas cosas no deben ser optimizadas. El amor requiere tiempo---tiempo para conocer realmente a alguien, tiempo para construir confianza, tiempo para que la pasión inicial madure en algo más profundo.
+
+También aprendimos que el amor es una habilidad que se puede desarrollar. No es solo suerte o destino. Podemos aprender a amar mejor---a comunicarnos más claramente, a ser más vulnerables, a comprometernos más profundamente, a respetar más genuinamente.
+
+Quizás lo más importante es entender que el amor no es un sentimiento que simplemente nos sucede y sobre el cual no tenemos control. Es una elección activa que renovamos constantemente. Las teorías psicológicas nos dan marcos para entender el amor, pero la experiencia vivida es lo que realmente nos enseña.
+
+\begin{center}
+\begin{tcolorbox}[colback=maincolor!10,colframe=secondcolor,width=14cm,arc=3mm,boxrule=1.5pt]
+\centering\textit{\color{darkgray}
+``Al final, el amor es el riesgo más grande y la recompensa más profunda que la experiencia humana ofrece. No tiene sentido sin vulnerabilidad, no crece sin esfuerzo, y no perdura sin compromiso. Pero cuando estos elementos se alinean, cuando encontramos a alguien con quien compartir no solo los momentos extraordinarios sino también los ordinarios, descubrimos que el amor---en toda su complejidad y misterio---es quizás lo más cercano a la magia que los seres humanos podemos experimentar.''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{1cm}
+
+\section*{\color{maincolor}Referencias}
+
+\begin{itemize}[leftmargin=*]
+    \item Sternberg, R. J. (1986). A triangular theory of love. \textit{Psychological Review, 93}(2), 119-135.
+    
+    \item Bowlby, J. (1969). \textit{Attachment and loss: Vol. 1. Attachment}. Basic Books.
+    
+    \item Ainsworth, M. D. S., Blehar, M. C., Waters, E., \& Wall, S. (1978). \textit{Patterns of attachment: A psychological study of the strange situation}. Lawrence Erlbaum.
+    
+    \item Lee, J. A. (1973). \textit{The colors of love: An exploration of the ways of loving}. New Press.
+    
+    \item Fisher, H. E., Aron, A., \& Brown, L. L. (2006). Romantic love: A mammalian brain system for mate choice. \textit{Philosophical Transactions of the Royal Society B, 361}, 2173-2186.
+    
+    \item Sternberg, R. J. (1998). \textit{Love is a story: A new theory of relationships}. Oxford University Press.
+    
+    \item Hazan, C., \& Shaver, P. (1987). Romantic love conceptualized as an attachment process. \textit{Journal of Personality and Social Psychology, 52}(3), 511-524.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\begin{center}
+\includegraphics[width=8cm]{media/beauty-heart-fv.png}
+\end{center}
+
+\end{document}

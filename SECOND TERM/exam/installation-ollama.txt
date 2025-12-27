@@ -1,0 +1,282 @@
+# 🤖 Guía de Configuración del Chatbot con Ollama
+
+## ✅ ¿Por qué Ollama?
+
+- ✅ **100% GRATIS** - Sin límites de uso
+- ✅ **100% LOCAL** - Tus datos nunca salen de tu PC
+- ✅ **RÁPIDO** - 1-2 segundos por respuesta
+- ✅ **FÁCIL** - Instalación en 2 minutos
+- ✅ **POTENTE** - Modelos de última generación
+
+---
+
+## 📥 PASO 1: Instalar Ollama
+
+### Opción A: Con WinGet (Recomendado)
+```powershell
+winget install Ollama.Ollama
+```
+
+### Opción B: Descarga manual
+1. Ve a https://ollama.ai/download
+2. Descarga el instalador para Windows
+3. Ejecuta el instalador
+4. Ollama se iniciará automáticamente en segundo plano
+
+---
+
+## 🤖 PASO 2: Descargar un modelo
+
+Elige UNO de estos modelos (recomendados de menor a mayor tamaño):
+
+### 🏃 Phi-3 (RECOMENDADO - Más rápido)
+```powershell
+ollama pull phi3
+```
+- **Tamaño**: 2.3 GB
+- **Velocidad**: ⚡⚡⚡⚡⚡ (1-2 segundos)
+- **Calidad**: ⭐⭐⭐⭐ (Muy bueno para español)
+- **Memoria**: 4 GB RAM mínimo
+
+### ⚖️ Llama 3.2 (Balance perfecto)
+```powershell
+ollama pull llama3.2
+```
+- **Tamaño**: 3.2 GB
+- **Velocidad**: ⚡⚡⚡⚡ (2-3 segundos)
+- **Calidad**: ⭐⭐⭐⭐⭐ (Excelente)
+- **Memoria**: 6 GB RAM mínimo
+
+### 🎯 Mistral (Más potente)
+```powershell
+ollama pull mistral
+```
+- **Tamaño**: 4.1 GB
+- **Velocidad**: ⚡⚡⚡ (3-4 segundos)
+- **Calidad**: ⭐⭐⭐⭐⭐ (Excelente)
+- **Memoria**: 8 GB RAM mínimo
+
+**Mi recomendación**: Empieza con **phi3** (más rápido y ligero).
+
+---
+
+## ⚙️ PASO 3: Configurar el backend
+
+Ya está configurado automáticamente en tu `.env`:
+
+```env
+# Ollama Local (RECOMENDADO - 100% gratis, sin límites)
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=phi3
+
+# OpenAI API Compatible (para usar modelos locales con API OpenAI)
+USE_LOCAL_MODEL=true
+LOCAL_API_URL=http://localhost:11434/v1
+```
+
+**Si descargaste otro modelo**, cambia `OLLAMA_MODEL`:
+- Para Llama 3.2: `OLLAMA_MODEL=llama3.2`
+- Para Mistral: `OLLAMA_MODEL=mistral`
+
+---
+
+## 🚀 PASO 4: Reiniciar el backend
+
+```powershell
+# Si el backend está corriendo, se reiniciará automáticamente
+# Si no, ejecuta:
+cd back
+npm run start:dev
+```
+
+Deberías ver este mensaje en la consola:
+```
+🤖 Usando modelo local Ollama: phi3
+```
+
+---
+
+## 🧪 PASO 5: Probar el chatbot
+
+1. Ve a **http://localhost:3001/chat**
+2. Haz una pregunta:
+   ```
+   ¿Qué es Gender Quest?
+   ```
+3. Debería responder en 1-3 segundos con IA local
+
+---
+
+## 🔧 Solución de problemas
+
+### ❌ Error: "Ollama no disponible"
+
+**Problema**: Ollama no está corriendo.
+
+**Solución**:
+```powershell
+# Verifica si Ollama está corriendo
+ollama list
+
+# Si no responde, inicia Ollama manualmente
+ollama serve
+```
+
+En Windows, Ollama normalmente se inicia automáticamente como servicio.
+
+---
+
+### ❌ Error: "Model not found"
+
+**Problema**: El modelo no está descargado.
+
+**Solución**:
+```powershell
+# Ver modelos instalados
+ollama list
+
+# Descargar el modelo
+ollama pull phi3
+```
+
+---
+
+### ❌ La primera respuesta tarda mucho
+
+**Es normal**: El modelo se carga en memoria la primera vez (5-10 segundos).
+Las siguientes respuestas serán instantáneas (1-2 segundos).
+
+---
+
+### ❌ Error de memoria
+
+**Problema**: Tu PC no tiene suficiente RAM.
+
+**Solución**: Usa un modelo más pequeño:
+```powershell
+# Modelo más ligero (1.7 GB)
+ollama pull gemma:2b
+```
+
+Luego en `.env`:
+```env
+OLLAMA_MODEL=gemma:2b
+```
+
+---
+
+## 📊 Comparación de Opciones
+
+| Método | Velocidad | Costo | Límites | Privacidad |
+|--------|-----------|-------|---------|------------|
+| **Ollama (Local)** | ⚡⚡⚡⚡ | $0 | ∞ | 🔒 100% |
+| Hugging Face API | ⚡⚡⚡ | $0 | 1000/día | ☁️ Cloud |
+| Modo Demo | ⚡⚡⚡⚡⚡ | $0 | ∞ | 🔒 100% |
+
+---
+
+## 🎯 Comandos útiles de Ollama
+
+```powershell
+# Ver modelos instalados
+ollama list
+
+# Descargar un modelo
+ollama pull <nombre-modelo>
+
+# Eliminar un modelo
+ollama rm <nombre-modelo>
+
+# Probar un modelo en la terminal
+ollama run phi3
+
+# Ver información del modelo
+ollama show phi3
+
+# Actualizar Ollama
+winget upgrade Ollama.Ollama
+```
+
+---
+
+## 🔄 Cambiar entre métodos
+
+### Para usar Ollama (local):
+```env
+USE_LOCAL_MODEL=true
+```
+
+### Para usar Hugging Face (cloud):
+```env
+USE_LOCAL_MODEL=false
+```
+
+El backend automáticamente:
+1. Intenta Ollama si `USE_LOCAL_MODEL=true`
+2. Si falla, intenta Hugging Face
+3. Si falla, usa modo demo
+
+**¡Siempre funcionará!** 🎉
+
+---
+
+## ⚡ Optimización
+
+### Para respuestas más rápidas:
+```env
+# En .env, puedes ajustar:
+OLLAMA_MODEL=phi3  # Modelo más rápido
+```
+
+### Para respuestas de mejor calidad:
+```env
+OLLAMA_MODEL=llama3.2  # Mejor calidad
+```
+
+---
+
+## 💡 Ventajas de Ollama para Gender Quest
+
+✅ **Sin límites de uso** - Los usuarios pueden hacer 1000+ preguntas sin restricciones
+✅ **Privacidad total** - Las conversaciones nunca salen de tu servidor
+✅ **Siempre disponible** - No depende de servicios externos
+✅ **Gratis para siempre** - $0 de costos operativos
+✅ **Escalable** - Puedes mover el servidor a producción fácilmente
+
+---
+
+## 🌐 Para Producción
+
+Si quieres desplegar tu app en un servidor:
+
+1. Instala Ollama en el servidor
+2. Descarga el modelo que quieras usar
+3. Configura el `.env` con la URL del servidor:
+   ```env
+   OLLAMA_BASE_URL=http://tu-servidor:11434
+   ```
+
+¡Y listo! Tu chatbot funcionará 24/7 sin costos.
+
+---
+
+## 📚 Recursos adicionales
+
+- Documentación oficial: https://ollama.ai/
+- Lista de modelos: https://ollama.ai/library
+- GitHub de Ollama: https://github.com/ollama/ollama
+- Discord de Ollama: https://discord.gg/ollama
+
+---
+
+## ✅ Checklist de Verificación
+
+- [ ] Ollama instalado (`ollama --version`)
+- [ ] Modelo descargado (`ollama list`)
+- [ ] `.env` configurado con `USE_LOCAL_MODEL=true`
+- [ ] Backend reiniciado (ver mensaje "🤖 Usando modelo local")
+- [ ] Chatbot responde en http://localhost:3001/chat
+
+---
+
+¡Listo! Ahora tienes un chatbot con IA **100% gratis y sin límites**. 🎉

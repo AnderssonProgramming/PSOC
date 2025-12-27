@@ -1,0 +1,45 @@
+# 🚀 Iniciar Ollama
+
+## Comando para activar el servicio Ollama
+
+```bash
+ollama serve
+```
+
+## Alternativa con ruta completa (si no está en PATH)
+
+```bash
+& "$env:LOCALAPPDATA\Programs\Ollama\ollama.exe" serve
+```
+
+## Verificar que Ollama está corriendo
+
+```bash
+# Ver modelos instalados
+ollama list
+
+# Probar el modelo Phi-3
+ollama run phi3 "Hola, ¿cómo estás?"
+```
+
+## ✅ El servicio está listo cuando veas:
+
+```
+Listening on 127.0.0.1:11434
+```
+
+## 📝 Notas importantes
+
+- **Ollama se ejecuta automáticamente en segundo plano** después de la instalación en Windows
+- Solo necesitas ejecutar `ollama serve` manualmente si el servicio se detuvo
+- El modelo **Phi-3** (2.2 GB) ya está descargado y listo para usar
+- La API escucha en: `http://127.0.0.1:11434`
+
+## 🔍 Verificar si Ollama ya está corriendo
+
+```powershell
+# En PowerShell, verifica la conexión
+Invoke-RestMethod -Uri "http://127.0.0.1:11434/api/tags" | Select-Object -ExpandProperty models
+```
+
+Si obtienes una lista con `phi3:latest`, ¡Ollama ya está activo! ✅
